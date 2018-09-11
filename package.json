@@ -27,6 +27,9 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "eslint": "^5.5.0",
+    "eslint-config-node": "^3.0.0",
+    "eslint-config-prettier": "^3.0.1",
     "express": "^4.16.3",
     "handlebars": "^4.0.12"
   }
