@@ -1,0 +1,5 @@
+{
+  "extends": ["node", "prettier"],
+  "env": { "node": true, "browser": true },
+  "rules": {}
+}

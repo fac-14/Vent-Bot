@@ -22,5 +22,5 @@ app.engine("hbs", handlebars({
 app.use(router);
 
 app.listen(app.get('port'), () => {
-    console.log('Hello World');
+    console.log('Listening on 3000');
 })
