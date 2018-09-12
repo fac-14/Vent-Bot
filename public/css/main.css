@@ -3,5 +3,9 @@ h1 {
 }
 
 body {
-  background: yellow;
+  background: lightgrey;
+}
+
+nav {
+  background: grey;
 }

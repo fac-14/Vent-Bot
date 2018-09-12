@@ -1,1 +1,48 @@
-<h1>FEELIN' CHATTY?</h1>
+<section>
+
+  <nav>
+    <ul>
+      <li id="menu">icon</li>
+      <li id="exit">x</li>
+    <ul>
+  </nav>
+
+  <div>
+    <div id="chat-window">
+
+      <ul>
+        <li id="bot-message">
+          <p>What's up?</p>
+          <p class="name">Bot</p>
+        </li>
+
+        <li id="user-message">
+          <p>I'm mad as heeeeeell</p>
+          <p class="name">User</p>
+        </li>
+
+        <li id="bot-message">
+          <p>Sux to be you..hehehhehe</p>
+          <p class="name">Bot</p>
+        </li>
+
+        <li id="user-message">
+          <p>*cry*</p>
+          <p class="name">User</p>
+        </li>
+
+        <li id="bot-message">
+          <p>*thinking*</p>
+          <p class="name">Bot</p>
+        </li>
+      </ul>
+
+    </div>
+    <form method="post" action="/send-data">
+      <textarea id="send-button" rows="0" columns="0" type="text" name="user-message" value="Hello bot" placeholder="Type your message"></textarea>
+      <button id="send-button" type="submit" >send</button>
+    </form>
+  </div>
+
+
+</section>
