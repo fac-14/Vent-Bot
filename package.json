@@ -4,6 +4,7 @@
   "description": "![build icon](https://travis-ci.org/fac-14/Vent-Bot.svg?branch=master)",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon src/app.js",
     "start": "node src/app.js",
     "test": "jest",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
