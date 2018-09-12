@@ -10,16 +10,25 @@ const resources = require('./routes/resources');
 const message = require('./routes/message');
 const error = require('./routes/error');
 
-//routes
-
+//Main routes
 router.get("/", home.get);
 router.get("/chat", chat.get);
 router.get("/about", about.get);
 router.get("/resources", resources.get);
 router.post("/send-message", message.post);
 
-//error
+// Special route to cause 500 error in test
+if(process.env.NODE_ENV === 'test'){
+    router.get("/test500",(req, res, next) => {
+        try {
+            throw new Error("example error")
+        } catch (e) {
+            next(e)
+        }
+    });
+}
 
+// error routes
 router.use(error.get404);
 router.use(error.get500);
 
