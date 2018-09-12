@@ -1,13 +1,13 @@
-var express = require('express');
-var handlebars = require('express-handlebars');
-var path = require('path');
-var router = require('./controllers/router')
+const express = require('express');
+const handlebars = require('express-handlebars');
+const path = require('path');
+const router = require('./controllers/router')
 // set up server
-var app = express();
-
+const app = express();
+const port = process.env.PORT || 3000;
 //set up handlebars + port
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', port);
 app.set('views', path.join(__dirname, "views"));
 app.set('view engine', "hbs");
 app.engine("hbs", handlebars({
@@ -22,5 +22,5 @@ app.engine("hbs", handlebars({
 app.use(router);
 
 app.listen(app.get('port'), () => {
-    console.log('Listening on 3000');
+    console.log(`Listening on port ${port}`);
 })
