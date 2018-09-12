@@ -1,6 +1,8 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
 const path = require('path');
+const bodyParser = require('body-parser')
+
 const router = require('./controllers/router')
 // set up server
 const app = express();
@@ -18,8 +20,11 @@ app.engine("hbs", handlebars({
 }));
 
 //routes
-
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(router);
+
 
 app.listen(app.get('port'), () => {
     console.log(`Listening on port ${port}`);
