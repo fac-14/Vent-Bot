@@ -10,36 +10,42 @@
   <div>
     <div id="chat-window">
 
-      <ul>
-        <li id="bot-message">
-          <p>What's up?</p>
+      <ul id="chat-ul">
+        <li id="bot-speech-bubble">
+          What's up?
           <p class="name">Bot</p>
         </li>
 
-        <li id="user-message">
+        <li id="user-speech-bubble">
           <p>I'm mad as heeeeeell</p>
           <p class="name">User</p>
         </li>
 
-        <li id="bot-message">
+        <li id="bot-speech-bubble">
           <p>Sux to be you..hehehhehe</p>
           <p class="name">Bot</p>
         </li>
 
-        <li id="user-message">
+        <li id="user-speech-bubble">
           <p>*cry*</p>
           <p class="name">User</p>
         </li>
 
-        <li id="bot-message">
+        <li id="bot-speech-bubble">
           <p>*thinking*</p>
           <p class="name">Bot</p>
         </li>
       </ul>
 
+      <div>
+        <ul id="thinking-bubble">
+
+        </ul>
+      </div>
+
     </div>
-    <form method="post" action="/send-data">
-      <textarea id="send-button" rows="0" columns="0" type="text" name="user-message" value="Hello bot" placeholder="Type your message"></textarea>
+    <form method="post" action="/send-message">
+      <textarea id="user-input" rows="0" cols="0" name="user-message" placeholder="Type your message"></textarea>
       <button id="send-button" type="submit" >send</button>
     </form>
   </div>
