@@ -25,7 +25,4 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(router);
 
-
-app.listen(app.get('port'), () => {
-    console.log(`Listening on port ${port}`);
-})
+module.exports = app;

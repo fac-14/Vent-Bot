@@ -4,10 +4,10 @@
   "description": "![build icon](https://travis-ci.org/fac-14/Vent-Bot.svg?branch=master)",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js",
-    "start": "node src/app.js",
-    "test": "jest",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "jest --coverage",
+    "report-coverage" : "codecov"
   },
   "repository": {
     "type": "git",
@@ -24,9 +24,7 @@
     "jest": "^23.6.0",
     "nodemon": "^1.18.4",
     "nyc": "^13.0.1",
-    "supertest": "^3.3.0",
-    "tap-spec": "^5.0.0",
-    "tape": "^4.9.1"
+    "supertest": "^3.3.0"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
