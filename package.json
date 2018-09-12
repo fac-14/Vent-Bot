@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "test": "nyc tape ./test/*.js | tap-spec",
+    "test": "jest",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/fac-14/Vent-Bot#readme",
   "devDependencies": {
     "codecov": "^3.1.0",
+    "jest": "^23.6.0",
     "nodemon": "^1.18.4",
     "nyc": "^13.0.1",
     "supertest": "^3.3.0",
