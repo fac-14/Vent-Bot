@@ -49,3 +49,35 @@ describe("Test the /about GET route", () => {
   });
 });
 
+describe("Test the 404 route", ()=> {
+  test("Returns with status code 404", done => {
+    supertest(app)
+    .get("/wrongway")
+    .then(response => {
+      expect(response.statusCode).toBe(404);
+      done();
+    });
+  });
+});
+
+describe("Test CSS 500 route", () => {
+  test("Returns with status code of 500", done => {
+    supertest(app)
+    .get("/test500")
+    .then(response => {
+      expect(response.statusCode).toBe(500);
+      done();
+    });
+  });
+});
+
+describe("Test the send-message POST route", () => {
+  test("Returns with a redirect status code of 302", done => {
+    supertest(app)
+      .post('/send-message')
+      .then( response => {
+        expect(response.statusCode).toBe(302)
+        done();
+      });
+  });
+}); 

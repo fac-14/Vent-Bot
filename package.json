@@ -7,7 +7,7 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "test": "jest --coverage",
-    "report-coverage" : "codecov"
+    "report-coverage": "codecov"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,6 @@
     "codecov": "^3.1.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.4",
-    "nyc": "^13.0.1",
     "supertest": "^3.3.0"
   },
   "dependencies": {
