@@ -71,13 +71,13 @@ describe("Test CSS 500 route", () => {
   });
 });
 
-describe("Test the send-message POST route", () => {
-  test("Returns with a redirect status code of 302", done => {
-    supertest(app)
-      .post('/send-message')
-      .then( response => {
-        expect(response.statusCode).toBe(200)
-        done();
-      });
-  });
-}); 
+// describe("Test the send-message POST route", () => {
+//   test("Returns with a redirect status code of 302", done => {
+//     supertest(app)
+//       .post('/send-message')
+//       .then( response => {
+//         expect(response.statusCode).toBe(200)
+//         done();
+//       });
+//   });
+// }); 
