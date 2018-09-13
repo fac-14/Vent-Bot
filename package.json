@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dialogflow": "^0.6.0",
+    "env2": "^2.2.2",
     "eslint": "^5.5.0",
     "eslint-config-node": "^3.0.0",
     "eslint-config-prettier": "^3.0.1",
