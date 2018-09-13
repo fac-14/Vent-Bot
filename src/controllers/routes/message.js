@@ -1,4 +1,4 @@
-const env = require('env2')('/home/emily/founders/projects/Vent-Bot/config.env');
+const env = require('env2')('config.env');
 
 exports.post = (req, res) => {
   const message = req.body.message;
