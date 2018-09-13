@@ -76,7 +76,7 @@ describe("Test the send-message POST route", () => {
     supertest(app)
       .post('/send-message')
       .then( response => {
-        expect(response.statusCode).toBe(302)
+        expect(response.statusCode).toBe(200)
         done();
       });
   });
