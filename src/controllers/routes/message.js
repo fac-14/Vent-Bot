@@ -1,4 +1,8 @@
-const env = require('env2')('config.env');
+if ( !process.env.TRAVIS ) {
+  const env = require('env2')('config.env');
+}
+
+
 
 exports.post = (req, res) => {
   const message = req.body.message;
