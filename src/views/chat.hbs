@@ -1,52 +1,48 @@
-<section>
+<section id="chat-section">
 
   <nav>
     <ul>
-      <li id="menu">icon</li>
-      <li id="exit">x</li>
-      <ul>
+      <li id="menu" class="menu-button" aria-label="menu"></li>
+      <li id="exit" class="menu-button" aria-label="exit"></li>
+    </ul>
   </nav>
 
   <div>
     <div id="chat-window">
 
       <ul id="chat-ul">
-        <li id="bot-speech-bubble">
-          What's up?
-          <p class="name">Bot</p>
+        {{!-- <li class="bubble-wrapper-bot">
+          <p class="bot-speech-bubble speechBox">What's up?</p>
+          <p class="name">BOT</p>
         </li>
 
-        <li id="user-speech-bubble">
-          <p>I'm mad as heeeeeell</p>
-          <p class="name">User</p>
+        <li class="bubble-wrapper-user">
+          <p class="user-speech-bubble speechBox">I'm mad as hell</p>
+          <p class="name">USER</p>
         </li>
 
-        <li id="bot-speech-bubble">
-          <p>Sux to be you..hehehhehe</p>
-          <p class="name">Bot</p>
+        <li class="bubble-wrapper-bot">
+          <p class="bot-speech-bubble speechBox">Sucks to be youu! hehe</p>
+          <p class="name">BOT</p>
         </li>
 
-        <li id="user-speech-bubble">
-          <p>*cry*</p>
-          <p class="name">User</p>
+        <li class="bubble-wrapper-user">
+          <p class="user-speech-bubble speechBox">*cry*</p>
+          <p class="name">USER</p>
         </li>
 
-        <li id="bot-speech-bubble">
-          <p>Tell me about ur problems m8</p>
-          <p class="name">Bot</p>
-        </li>
+        <li class="bubble-wrapper-bot">
+          <p class="bot-speech-bubble speechBox">Tell me your problems</p>
+          <p class="name">BOT</p>
+        </li> --}}
       </ul>
 
-      <div>
-        <ul id="thinking-bubble">
-
-        </ul>
-      </div>
-
     </div>
+    {{!-- end of div 'chat-window' --}}
     <form method="post" action="/send-message">
-      <textarea id="user-input" rows="0" cols="0" name="user-message" placeholder="Type your message"></textarea>
-      <button id="send-button" type="submit">send</button>
+      <label for="user-input" aria-label="message"></label>
+      <input id="user-input" name="user-message" placeholder="Type your message" required>
+      <button id="send-button" type="submit" aria-label="send message"></button>
     </form>
   </div>
 

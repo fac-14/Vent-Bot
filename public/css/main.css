@@ -1,28 +1,134 @@
-h1 {
-  color: blue;
+body {
+  background: #ffffff;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  background-color: #bcbcbc;
 }
 
-body {
-  background: lightgrey;
+#chat-section {
+  max-width: 665px;
+  margin: auto;
+  background: white;
 }
 
 nav {
-  background: grey;
+  background:#FCFCFC;
+  height: 68px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 665px;
 }
 
-#bot-speech-bubble {
-  color: blue;
+nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-#user-speech-bubble {
-  color: red;
+.menu-button {
+  height: 54px;
+  width: 54px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+}
+
+#menu {
+  background-color: #F4EB22;
+  background-image: url("./img/Menu-lines.svg");
+  margin-left: 19px;
+}
+
+#exit {
+  margin-right: 19px;
+  background-image: url("./img/cross.svg");
+}
+
+/* Speech bubble styles */
+
+#chat-window {
+  margin: 68px 0;
+  min-height: calc(100vh - 68px - 68px);
+}
+
+#chat-ul {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.bubble-wrapper-bot {
+  margin: 10px 19px;
+  align-self: flex-start; 
+}
+
+.bubble-wrapper-user {
+  margin: 10px 19px;
+  align-self: flex-end; 
+}
+
+.speechBox {
+  max-width: 220px;
+  border-radius: 17px;
+  padding: 15px;
+}
+
+.bot-speech-bubble {
+  background-color: #0cceff;
+  color: white;
+  font-weight: 900;
+}
+.user-speech-bubble {
+  background-color: #d5d2d2;
+  text-align: right;
 }
 
 .name {
   font-size: 0.8rem;
+  font-family: 'Roboto', sans-serif;
   color: gray;
+  padding: 10px 15px;
 }
 
-#chat-ul li {
+.bubble-wrapper-user .name {
+  text-align: right;
+}
+
+.bubble-wrapper-bot .name {
+  color: #0cceff;
+}
+
+/* Form (typing area) styles */
+
+form {
+  background: #FCFCFC;
+  position: fixed;
+  bottom: 0;
+  height: 68px;
+  width: 100%;
+  display: flex;
+  flex-flow: row, nowrap;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 665px;
+}
+
+#user-input {
+  width: 70%;
+  background: #DFDFDF;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
   padding: 10px;
+}
+
+#send-button {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
