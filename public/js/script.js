@@ -1,4 +1,22 @@
 /* eslint-disable */
+
+//navbar visibility
+
+var navBar = document.getElementById('navbar');
+var navIcon = document.querySelector('.nav-icon');
+
+navIcon.addEventListener('click', showNavbar)
+
+function showNavbar() {
+  if (navBar.className === 'hidden-nav') {
+    navBar.classList.remove('hidden-nav');
+  } else {
+    navBar.classList.add('hidden-nav');
+  }
+}
+
+
+
 var chatUl = document.getElementById('chat-ul');
 var sendButton = document.getElementById('send-button');
 var thinkingDiv = document.getElementById('thinking-bubble');

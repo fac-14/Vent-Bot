@@ -10,6 +10,7 @@ body {
   max-width: 665px;
   margin: auto;
   background: white;
+  position: relative;
 }
 
 nav {
@@ -19,6 +20,13 @@ nav {
   top: 0;
   width: 100%;
   max-width: 665px;
+}
+
+#navbar {
+  background: pink;
+  height: 100%;
+  width: 200px;
+  position: absolute;
 }
 
 nav ul {
@@ -59,6 +67,10 @@ nav ul {
 #chat-ul {
   display: flex;
   flex-flow: column nowrap;
+}
+
+.hidden-nav {
+  display: none;
 }
 
 .bubble-wrapper-bot {
