@@ -10,7 +10,6 @@ body {
   max-width: 665px;
   margin: auto;
   background: white;
-
 }
 
 nav {
@@ -49,7 +48,6 @@ nav ul {
   margin-right: 19px;
   background-image: url("./img/cross.svg");
 }
-
 
 /* Speech bubble styles */
 
@@ -117,7 +115,6 @@ form {
   align-items: center;
   justify-content: space-around;
   max-width: 665px;
-
 }
 
 #user-input {

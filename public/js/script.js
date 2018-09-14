@@ -2,6 +2,7 @@
 var chatUl = document.getElementById('chat-ul');
 var sendButton = document.getElementById('send-button');
 var thinkingDiv = document.getElementById('thinking-bubble');
+var chatWindow = document.querySelector("#chat-window")
 
 window.addEventListener('load', function(e) {
   var whatsup = createBubble('bot',"What's up?");
@@ -12,23 +13,17 @@ window.addEventListener('load', function(e) {
 
 sendButton.addEventListener('click', function(e) {
   e.preventDefault();
-  // clear previous "..."
   var thinking = document.querySelector(".thinking")
   if ( thinking ){
     thinking.remove();
   }
-  // get input
   var inputField = document.getElementById('user-input')
   var userInput = inputField.value;
-  // Send input to server
   sendInput(userInput, renderBotResponse);
-  // add bubble-wrapper
   var message = createBubble('user', userInput);
   chatUl.appendChild(message);
-  // add thinking li
   var thinking = createBubble('bot', '...', 'thinking')
   chatUl.appendChild(thinking);
-  // clear input, reset focus
   userInput.value = ""
   inputField.focus();
   setScrollToBottom();
@@ -58,7 +53,6 @@ function renderBotResponse(resJSON) {
   setScrollToBottom();
 }
 
-var chatWindow = document.querySelector("#chat-window")
 
 function setScrollToBottom() {
   var length = chatWindow.clientHeight;
@@ -74,17 +68,13 @@ function createBubble(person, text, thinking) {
   if (thinking) {
     container.classList.add('thinking')
   }
-
   var reply = document.createElement('p');
   reply.classList.add(`${person}-speech-bubble`,`speechBox`);
   reply.textContent = text;
-
   var subtext = document.createElement('p');
   subtext.textContent = person.toUpperCase();
   subtext.classList.add('name');
-
   container.appendChild(reply);
   container.appendChild(subtext);
-
   return container;  
 }
