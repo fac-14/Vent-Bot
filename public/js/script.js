@@ -24,7 +24,7 @@ sendButton.addEventListener('click', function(e) {
   chatUl.appendChild(message);
   var thinking = createBubble('bot', '...', 'thinking')
   chatUl.appendChild(thinking);
-  userInput.value = ""
+  inputField.value = ""
   inputField.focus();
   setScrollToBottom();
 });
@@ -57,7 +57,6 @@ function renderBotResponse(resJSON) {
 function setScrollToBottom() {
   var length = chatWindow.clientHeight;
   window.scrollTo(0, length);
-  console.log(length);
 }
 
 
