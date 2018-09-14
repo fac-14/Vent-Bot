@@ -3,31 +3,35 @@ var chatUl = document.getElementById('chat-ul');
 var sendButton = document.getElementById('send-button');
 var thinkingDiv = document.getElementById('thinking-bubble');
 
+window.addEventListener('load', function(e) {
+  var whatsup = createBubble('bot',"What's up?");
+  setTimeout(function() {
+    chatUl.appendChild(whatsup);
+  }, 500);
+})
+
 sendButton.addEventListener('click', function(e) {
   e.preventDefault();
-  // clear previous "thinking..."
-  thinkingDiv.textContent = "";
+  // clear previous "..."
+  var thinking = document.querySelector(".thinking")
+  if ( thinking ){
+    thinking.remove();
+  }
   // get input
   var inputField = document.getElementById('user-input')
   var userInput = inputField.value;
   // Send input to server
   sendInput(userInput, renderBotResponse);
-  // add message bubble
-  var chatLi = document.createElement('li');
-  chatLi.id = "user-speech-bubble";
-  chatLi.innerText = userInput;
-  // include subtext of bot/user
-  var ptext = document.createElement('p');
-  ptext.textContent = "User";
-  ptext.classList.add("name");
-  chatLi.appendChild(ptext);
-  chatUl.appendChild(chatLi);
-  // add thinking div
-  thinkingDiv.textContent = "thinking..."
+  // add bubble-wrapper
+  var message = createBubble('user', userInput);
+  chatUl.appendChild(message);
+  // add thinking li
+  var thinking = createBubble('bot', '...', 'thinking')
+  chatUl.appendChild(thinking);
   // clear input, reset focus
   userInput.value = ""
   inputField.focus();
-  // e.dispatchEvent();
+  setScrollToBottom();
 });
 
 function sendInput(input, cb) {
@@ -45,15 +49,42 @@ function sendInput(input, cb) {
 }
 
 function renderBotResponse(resJSON) {
-  thinkingDiv.textContent = "";
-  var botLi = document.createElement('li');
-  botLi.id = 'bot-speech-bubble';
-  botLi.textContent = resJSON.fulfillmentText;
+  var thinking = document.querySelector(".thinking")
+  if ( thinking ){
+    thinking.remove();
+  }
+  var reply = createBubble('bot', resJSON.fulfillmentText);
+  chatUl.appendChild(reply);
+  setScrollToBottom();
+}
 
-  var pText = document.createElement('p');
-  pText.textContent = 'Bot';
-  pText.classList.add('name');
-  botLi.appendChild(pText);
-  chatUl.appendChild(botLi);
+var chatWindow = document.querySelector("#chat-window")
 
+function setScrollToBottom() {
+  var length = chatWindow.clientHeight;
+  window.scrollTo(0, length);
+  console.log(length);
+}
+
+
+function createBubble(person, text, thinking) {
+  person = person.toLowerCase();
+  var container = document.createElement('li');
+  container.classList.add(`bubble-wrapper-${person}`)
+  if (thinking) {
+    container.classList.add('thinking')
+  }
+
+  var reply = document.createElement('p');
+  reply.classList.add(`${person}-speech-bubble`,`speechBox`);
+  reply.textContent = text;
+
+  var subtext = document.createElement('p');
+  subtext.textContent = person.toUpperCase();
+  subtext.classList.add('name');
+
+  container.appendChild(reply);
+  container.appendChild(subtext);
+
+  return container;  
 }
