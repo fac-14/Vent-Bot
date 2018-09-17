@@ -35,7 +35,7 @@
 
     </div>
     {{!-- end of div 'chat-window' --}}
-    <form method="post" action="/send-message">
+    <form method="post" action="/send-message" autocomplete="off">
       <label for="user-input" aria-label="message"></label>
       <input id="user-input" name="user-message" placeholder="Type your message" required>
       <button id="send-button" type="submit" aria-label="send message"></button>
