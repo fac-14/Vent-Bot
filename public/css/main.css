@@ -273,22 +273,99 @@ p {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: center;
   min-height: calc(100vh - 68px);
 }
 
-#chat-btn, #go-home-btn {
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-container .name {
+  padding: 5px 0px;
+}
+
+.title-container,
+.tagline-container,
+.instruction-container {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-shadow: -5px -5px #f4eb22;
+  z-index: 1;
+}
+
+.img {
+  background-color: lightgrey;
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tagline-container {
+  margin-top: 80px;
+  align-items: center;
+  /* display: flex;
+  justify-content: center; */
+}
+
+.tagline,
+.instruction {
+  font-size: 1.5rem;
+  margin: 4px 20;
+}
+
+.prompt {
+  margin: 2px 0 4px 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.tagline {
+  min-width: 250px;
+  margin: 10px 50px;
+  text-align: center;
+  font-weight: 900;
+}
+
+.instruction-container {
+  margin: 5px 0;
+}
+
+.instruction {
+  min-width: 200px;
+  font-size: 1rem;
+  margin: 4px 80px;
+  font-weight: 400;
+  list-style-type: disc;
+}
+
+#chat-btn,
+#go-home-btn {
   padding: 10px 20px;
   border: none;
-  background: magenta;
-  color: white;
+  background: #f4eb22;
+  color: black;
   text-align: center;
-  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
+  /* font-size: 1.2rem; */
   border-radius: 25px;
   min-width: 140px;
-  margin: 50px 0;
+  margin: 8px 0;
 }
 
 #chat-btn:hover,
@@ -306,7 +383,7 @@ p {
     left: calc(50% - 665px / 2);
   }
   #pop-out-menu {
-    left: calc( (( 100vw - 665px) / 2 ) - 300px);
+    left: calc(((100vw - 665px) / 2) - 300px);
   }
   #menu-cover {
     position: fixed;
@@ -317,7 +394,4 @@ p {
     padding: 10px;
     z-index: 10;
   }
-
 }
-
-
