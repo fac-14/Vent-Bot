@@ -377,6 +377,13 @@ p {
   background: #0cceff;
 }
 
+/* ----------- Set if free ------------ */
+
+#gif {
+  width: 320px;
+  margin: 100px auto;
+}
+
 /* ----------- Media Queries ------------ */
 
 @media (min-width: 665px) {
