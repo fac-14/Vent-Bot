@@ -1,46 +1,9 @@
+<div id="chat-window">
+  <ul id="chat-ul"></ul>
+</div>
 
-
-<section id="chat-section">
-  {{>nav}}
-
-  <div>
-    <div id="chat-window">
-
-      <ul id="chat-ul">
-        {{!-- <li class="bubble-wrapper-bot">
-          <p class="bot-speech-bubble speechBox">What's up?</p>
-          <p class="name">BOT</p>
-        </li>
-
-        <li class="bubble-wrapper-user">
-          <p class="user-speech-bubble speechBox">I'm mad as hell</p>
-          <p class="name">USER</p>
-        </li>
-
-        <li class="bubble-wrapper-bot">
-          <p class="bot-speech-bubble speechBox">Sucks to be youu! hehe</p>
-          <p class="name">BOT</p>
-        </li>
-
-        <li class="bubble-wrapper-user">
-          <p class="user-speech-bubble speechBox">*cry*</p>
-          <p class="name">USER</p>
-        </li>
-
-        <li class="bubble-wrapper-bot">
-          <p class="bot-speech-bubble speechBox">Tell me your problems</p>
-          <p class="name">BOT</p>
-        </li> --}}
-      </ul>
-
-    </div>
-    {{!-- end of div 'chat-window' --}}
-    <form method="post" action="/send-message" autocomplete="off">
-      <label for="user-input" aria-label="message"></label>
-      <input id="user-input" name="user-message" placeholder="Type your message" required>
-      <button id="send-button" type="submit" aria-label="send message"></button>
-    </form>
-  </div>
-
-
-</section>
+<form method="post" action="/send-message" autocomplete="off">
+  <label for="user-input" aria-label="message"></label>
+  <input id="user-input" name="user-message" placeholder="Type your message" required>
+  <button id="send-button" type="submit" aria-label="send message"></button>
+</form>

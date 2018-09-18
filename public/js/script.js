@@ -2,16 +2,16 @@
 
 //navbar visibility
 
-var navBar = document.getElementById('navbar');
+var menu = document.getElementById('pop-out-menu');
 var navIcon = document.querySelector('.nav-icon');
 
-navIcon.addEventListener('click', showNavbar)
+navIcon.addEventListener('click', showMenu)
 
-function showNavbar() {
-  if (navBar.className === 'hidden-nav') {
-    navBar.classList.remove('hidden-nav');
+function showMenu() {
+  if (menu.className === 'hidden-menu') {
+    menu.classList.remove('hidden-menu');
   } else {
-    navBar.classList.add('hidden-nav');
+    menu.classList.add('hidden-menu');
   }
 }
 
