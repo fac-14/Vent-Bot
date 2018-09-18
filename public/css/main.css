@@ -1,18 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #ffffff;
   font-family: "Lato", sans-serif;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
-  background-color: #bcbcbc;
+  background-color: #ecf0f1;
   font-size: 18px;
+  color: black;
 }
 
-#chat-section {
+.main-section {
   max-width: 665px;
-  margin: auto;
   background: white;
   position: relative;
+  margin: 68px auto 0;
+  min-height: calc(100vh - 68px - 68px);
 }
+
+/* ----------- Nav Bar and Pop out menu ----------- */
+
+/*  Menu Button and Cross Container */
 
 nav {
   background: #fcfcfc;
@@ -21,13 +31,7 @@ nav {
   top: 0;
   width: 100%;
   max-width: 665px;
-}
-
-#navbar {
-  background: pink;
-  height: 100%;
-  width: 200px;
-  position: absolute;
+  z-index: 2;
 }
 
 nav ul {
@@ -38,7 +42,7 @@ nav ul {
   align-items: center;
 }
 
-.menu-button {
+.nav-button {
   height: 54px;
   width: 54px;
   border-radius: 50%;
@@ -47,31 +51,55 @@ nav ul {
   text-align: center;
 }
 
-#menu {
+#menu-btn {
   background-color: #f4eb22;
   background-image: url("./img/Menu-lines.svg");
   margin-left: 19px;
 }
 
-#exit {
+#exit-btn {
   margin-right: 19px;
   background-image: url("./img/cross.svg");
 }
 
-/* Speech bubble styles */
+/* Pop out menu */
 
-#chat-window {
-  margin: 68px 0;
-  min-height: calc(100vh - 68px - 68px);
+.show-menu {
+  transform: translate(300px);
 }
+
+#pop-out-menu {
+  z-index: 3;
+  background: #0cceff;
+  height: calc(100vh - 68px);
+  width: 300px;
+  position: fixed;
+  top: 68px;
+  display: flex;
+  flex-flow: column nowrap;
+  left: -300px;
+  transition: transform 0.5s ease;
+  text-align: center;
+}
+
+#pop-out-menu a {
+  padding: 20px 30px;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: white;
+}
+
+#pop-out-menu a:hover {
+  background: navy;
+}
+
+/* ----------- Chat interface styles ----------- */
+
+/* Speech bubble styles */
 
 #chat-ul {
   display: flex;
   flex-flow: column nowrap;
-}
-
-.hidden-nav {
-  display: none;
 }
 
 .bubble-wrapper-bot {
@@ -114,7 +142,7 @@ nav ul {
   color: #0cceff;
 }
 
-/* modal style */
+/* ----------- Exit Modal Styles ----------- */
 
 .overlay {
   position: absolute;
@@ -146,7 +174,6 @@ nav ul {
   padding: 15px;
   width: 177px;
   border-radius: 17px;
-  /* font-size: 24px; */
 }
 
 .button-div {
@@ -195,13 +222,102 @@ form {
 }
 
 #send-button {
+  background-color: #dfdfdf;
   height: 40px;
   width: 40px;
   border-radius: 50%;
 }
 
+/* ----------- Other page stylings ----------- */
+
+/* Resources and About */
+
+h1 {
+  font-size: 2rem;
+  margin: 15px 0;
+}
+
+h2 {
+  margin: 15px 0;
+  font-size: 1.3rem;
+}
+
+p {
+  margin: 20px 0;
+}
+
+.information-container {
+  padding: 20px;
+  min-height: calc(100vh - 68px);
+}
+
+.resources-group {
+  display: flex;
+  flex-flow: column nowrap;
+  padding-left: 20px;
+}
+
+.text-link {
+  text-decoration: none;
+  color: navy;
+}
+
+.text-link:hover,
+.text-link:focus {
+  color: magenta;
+}
+
+/* Home Screen */
+
+.home-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 68px);
+}
+
+#chat-btn, #go-home-btn {
+  padding: 10px 20px;
+  border: none;
+  background: magenta;
+  color: white;
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  min-width: 140px;
+  margin: 50px 0;
+}
+
+#chat-btn:hover,
+#go-home-btn:hover {
+  background: #0cceff;
+}
+
+/* ----------- Media Queries ------------ */
+
 @media (min-width: 665px) {
   .speechBox {
     max-width: 450px;
   }
+  nav {
+    left: calc(50% - 665px / 2);
+  }
+  #pop-out-menu {
+    left: calc( (( 100vw - 665px) / 2 ) - 300px);
+  }
+  #menu-cover {
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    width: calc((100vw - 665px) / 2);
+    background: #ecf0f1;
+    padding: 10px;
+    z-index: 10;
+  }
+
 }
+
+
