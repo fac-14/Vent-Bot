@@ -97,7 +97,7 @@ nav ul {
 }
 .user-speech-bubble {
   background-color: #d5d2d2;
-  text-align: right;
+  /* text-align: left; */
 }
 
 .name {
