@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #ffffff;
   font-family: "Lato", sans-serif;
@@ -12,7 +16,7 @@ body {
   max-width: 665px;
   background: white;
   position: relative;
-  margin: 68px auto;
+  margin: 68px auto 0;
   min-height: calc(100vh - 68px - 68px);
 }
 
@@ -27,6 +31,7 @@ nav {
   top: 0;
   width: 100%;
   max-width: 665px;
+  z-index: 2;
 }
 
 nav ul {
@@ -59,19 +64,22 @@ nav ul {
 
 /* Pop out menu */
 
-.hidden-menu {
-  display: none !important;
+.show-menu {
+  transform: translate(300px);
 }
 
 #pop-out-menu {
-  z-index: 1;
+  z-index: 3;
   background: #0cceff;
-  height: calc(100vh - 68px - 68px);
+  height: calc(100vh - 68px);
   width: 300px;
-  position: absolute;
+  position: fixed;
+  top: 68px;
   display: flex;
   flex-flow: column nowrap;
-  transition: 1s cubic-bezier()
+  left: -300px;
+  transition: transform 0.5s ease;
+  text-align: center;
 }
 
 #pop-out-menu a {
@@ -181,11 +189,12 @@ h2 {
 }
 
 p {
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .information-container {
   padding: 20px;
+  min-height: calc(100vh - 68px);
 }
 
 .resources-group {
@@ -211,7 +220,7 @@ p {
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  min-height: calc(100vh - 68px);
 }
 
 #chat-btn {
@@ -225,6 +234,7 @@ p {
   font-size: 1.2rem;
   border-radius: 25px;
   min-width: 140px;
+  margin: 50px 0;
 }
 
 #chat-btn:hover {
@@ -241,8 +251,18 @@ p {
     left: calc(50% - 665px / 2);
   }
   #pop-out-menu {
-    left: calc( (100vw - 665px) / 2);
+    left: calc( (( 100vw - 665px) / 2 ) - 300px);
   }
+  #menu-cover {
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    width: calc((100vw - 665px) / 2);
+    background: #ecf0f1;
+    padding: 10px;
+    z-index: 10;
+  }
+
 }
 
 

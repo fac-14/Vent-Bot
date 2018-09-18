@@ -8,10 +8,10 @@ var navIcon = document.querySelector('.nav-icon');
 navIcon.addEventListener('click', showMenu)
 
 function showMenu() {
-  if (menu.className === 'hidden-menu') {
-    menu.classList.remove('hidden-menu');
+  if (menu.className === 'show-menu') {
+    menu.classList.remove('show-menu');
   } else {
-    menu.classList.add('hidden-menu');
+    menu.classList.add('show-menu');
   }
 }
 
