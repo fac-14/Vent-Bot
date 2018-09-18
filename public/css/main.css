@@ -277,7 +277,7 @@ p {
   min-height: calc(100vh - 68px);
 }
 
-#chat-btn {
+#chat-btn, #go-home-btn {
   padding: 10px 20px;
   border: none;
   background: magenta;
@@ -291,7 +291,8 @@ p {
   margin: 50px 0;
 }
 
-#chat-btn:hover {
+#chat-btn:hover,
+#go-home-btn:hover {
   background: #0cceff;
 }
 
