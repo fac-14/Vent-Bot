@@ -20,6 +20,10 @@ body {
   min-height: calc(100vh - 68px - 68px);
 }
 
+#chat-window {
+  margin-bottom: 68px;
+}
+
 /* ----------- Nav Bar and Pop out menu ----------- */
 
 /*  Menu Button and Cross Container */

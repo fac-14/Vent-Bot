@@ -26,12 +26,8 @@ exports.post = (req, res) => {
   sessionClient
     .detectIntent(request)
     .then(responses => {
+      // console.log(responses);
       const result = responses[0].queryResult;
-      if (result.intent) {
-        // console.log(`  Intent: ${result.intent.displayName}`);
-      } else {
-        // console.log(`  No intent matched.`);
-      }
       res.end(JSON.stringify(result));
     })
     .catch(err => {
