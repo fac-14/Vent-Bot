@@ -327,7 +327,7 @@ p {
 
 .prompt {
   margin: 2px 0 4px 0;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
 }
 
@@ -339,7 +339,7 @@ p {
 }
 
 .instruction-container {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .instruction {
