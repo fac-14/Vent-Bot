@@ -15,6 +15,9 @@ function showNavbar() {
   }
 }
 
+// for modal functionality
+
+// var exit = document.getElement
 
 
 var chatUl = document.getElementById('chat-ul');
