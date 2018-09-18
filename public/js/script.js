@@ -1,50 +1,19 @@
 /* eslint-disable */
 
-//navbar visibility
-
-var menu = document.getElementById('pop-out-menu');
-var navIcon = document.querySelector('.nav-icon');
-
-navIcon.addEventListener('click', showMenu)
-
-function showMenu() {
-  if (menu.className === 'show-menu') {
-    menu.classList.remove('show-menu');
-  } else {
-    menu.classList.add('show-menu');
-  }
-}
-
-// for modal functionality
-// open modal
-var exit = document.getElementById("exit-btn");
-var overlay = document.getElementsByClassName("overlay");
-exit.addEventListener("click", function(e) {
-  overlay[0].classList.add("show");
-});
-
-// close modal - answer No to question
-var no = document.getElementById("modal-no");
-no.addEventListener("click", function(e) {
-  overlay[0].classList.remove("show");
-});
-
-// reroute to set if free screen - answe Yes to question
-var yes = document.getElementById("modal-yes");
-yes.addEventListener("click", function(e) {
-  window.location = "/animation";
-});
-
-var chatUl = document.getElementById("chat-ul");
-var sendButton = document.getElementById("send-button");
-var thinkingDiv = document.getElementById("thinking-bubble");
-var chatWindow = document.querySelector("#chat-window");
+const chatUl = document.getElementById("chat-ul");
+const sendButton = document.getElementById("send-button");
+const thinkingDiv = document.getElementById("thinking-bubble");
+const chatWindow = document.querySelector("#chat-window");
 
 window.addEventListener("load", function(e) {
-  var whatsup = createBubble("bot", "What's up?");
+  var whatsup = createBubble("bot", "Hey!");
+  var stressed = createBubble("bot", "Is something stressing you out?")
   setTimeout(function() {
     chatUl.appendChild(whatsup);
   }, 500);
+  setTimeout(function() {
+    chatUl.appendChild(stressed);
+  }, 1500);
 });
 
 sendButton.addEventListener("click", function(e) {
@@ -84,9 +53,34 @@ function renderBotResponse(resJSON) {
   if (thinking) {
     thinking.remove();
   }
-  var reply = createBubble("bot", resJSON.fulfillmentText);
-  chatUl.appendChild(reply);
-  setScrollToBottom();
+  if (resJSON.fulfillmentText) {
+    var reply = createBubble("bot", resJSON.fulfillmentText);
+    chatUl.appendChild(reply);
+  }
+  var nextQuestion = getNextQuestion();
+  var delay = 1000;
+  if (nextQuestion instanceof Array) {
+    nextQuestion.forEach(function(q) {
+      var html = createBubble("bot", q)
+      setTimeout(() => {
+        chatUl.appendChild(html);
+        setScrollToBottom();
+      }, delay);
+      delay += 1000;
+    })
+  } else {
+    var next = createBubble("bot", nextQuestion);
+    setTimeout(() => {
+      chatUl.appendChild(next);
+      setScrollToBottom();
+    }, 1000);
+  }
+}
+
+function getNextQuestion() {
+  var result = questionArray[questionCounter];
+  questionCounter++
+  return result;
 }
 
 function setScrollToBottom() {
@@ -111,3 +105,13 @@ function createBubble(person, text, thinking) {
   container.appendChild(subtext);
   return container;
 }
+
+var questionCounter = 0;
+var questionArray = [
+  "Tell me about the situation",
+  "What about that is causing you the most stress?",
+  ["How we feel about things is shaped by many things: emotions, thoughts, bodily sensations and behaviours are a few. I’m going to ask you about each of these:","What emotions do you feel when thinking about the situation?"],
+  "What bodily sensations do you feel when thinking about the situation?",
+  "How are you behaving in the situation?",
+  "What’s going through your mind when thinking about the situation?"
+]
