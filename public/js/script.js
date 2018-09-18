@@ -40,7 +40,6 @@ function sendInput(input, cb) {
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var parsed = JSON.parse(xhr.responseText);
-      console.log(parsed);
       cb(parsed);
     }
   };
@@ -62,7 +61,6 @@ function renderBotResponse(resJSON) {
   var delay = 1000;
   if (nextQuestion instanceof Array) {
     nextQuestion.forEach(function(q) {
-      console.log('is array')
       var html = createBubble("bot", q)
       setTimeout(() => {
         chatUl.appendChild(html);
@@ -71,7 +69,6 @@ function renderBotResponse(resJSON) {
       delay += 1000;
     })
   } else {
-    console.log('not array')
     var next = createBubble("bot", nextQuestion);
     setTimeout(() => {
       chatUl.appendChild(next);
@@ -85,7 +82,6 @@ function getNextQuestion() {
   questionCounter++
   return result;
 }
-
 
 function setScrollToBottom() {
   var length = chatWindow.clientHeight;
