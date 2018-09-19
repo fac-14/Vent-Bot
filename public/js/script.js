@@ -62,11 +62,12 @@ function renderBotResponse(resJSON) {
   // if (thinking) {
   //   thinking.remove();
   // }
-  thinkingDiv.classList.add("hidden");
+
   // render API response
   if (resJSON.fulfillmentText) {
     var reply = createBubble("bot", resJSON.fulfillmentText);
     chatUl.appendChild(reply);
+    thinkingDiv.classList.add("hidden");
   }
   // render next prompt
   var nextQuestion = getNextQuestion();
@@ -77,6 +78,7 @@ function renderBotResponse(resJSON) {
       setTimeout(() => {
         chatUl.appendChild(html);
         setScrollToBottom();
+        thinkingDiv.classList.add("hidden");
       }, delay);
       delay += 1000;
     });
@@ -85,6 +87,7 @@ function renderBotResponse(resJSON) {
     setTimeout(() => {
       chatUl.appendChild(next);
       setScrollToBottom();
+      thinkingDiv.classList.add("hidden");
     }, 1000);
   }
 }
