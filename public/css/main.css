@@ -107,14 +107,20 @@ nav ul {
   flex-flow: column nowrap;
 }
 
-.bubble-wrapper-bot {
-  margin: 0 19px;
-  align-self: flex-start;
-}
-
 .bubble-wrapper-user {
   margin: 0 19px;
   align-self: flex-end;
+  transition: all 0.5s ease;
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.bubble-wrapper-bot {
+  margin: 0 19px;
+  align-self: flex-start;
+  transition: all 0.5s ease;
+  transform: translateY(50px);
+  opacity: 0;
 }
 
 .speechBox {
@@ -146,6 +152,51 @@ nav ul {
 
 .bubble-wrapper-bot .name {
   color: #0cceff;
+}
+
+.move {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.thinking-dots {
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  z-index: 25;
+  top: -50px;
+  left: 19px;
+  padding: 5px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: lightgrey;
+  margin: 5px;
+  animation: grow 1s ease infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+.thinking-dots div:nth-child(2) {
+  animation-delay: 0.33s;
+}
+
+.thinking-dots div:nth-child(3) {
+  animation-delay: 0.66s;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
 }
 
 /* ----------- Exit Modal Styles ----------- */

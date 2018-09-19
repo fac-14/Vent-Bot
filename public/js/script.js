@@ -2,8 +2,10 @@
 
 const chatUl = document.getElementById("chat-ul");
 const sendButton = document.getElementById("send-button");
-const thinkingDiv = document.getElementById("thinking-bubble");
 const chatWindow = document.querySelector("#chat-window");
+const thinkingDiv = document.querySelector(".thinking-dots");
+
+// ----------- Initial hello -----------
 
 window.addEventListener("load", function(e) {
   var whatsup = createBubble("bot", "Hey!");
@@ -16,25 +18,30 @@ window.addEventListener("load", function(e) {
   }, 1500);
 });
 
+// ----------- User Send Message -----------
+
 sendButton.addEventListener("click", function(e) {
   e.preventDefault();
-  var thinking = document.querySelector(".thinking");
-  if (thinking) {
-    thinking.remove();
-  }
   var inputField = document.getElementById("user-input");
   var userInput = inputField.value;
+  // Send off XHR
   sendInput(userInput, renderBotResponse);
+  // Append message to chat
   var message = createBubble("user", userInput);
   chatUl.appendChild(message);
-  var thinking = createBubble("bot", "...", "thinking");
-  chatUl.appendChild(thinking);
+  // add thinkingDiv
+  thinkingDiv.classList.remove("hidden");
+  // Clear field and reset
   inputField.value = "";
   inputField.focus();
   setScrollToBottom();
 });
 
+// ----------- USER XHR -----------
+
 function sendInput(input, cb) {
+  // var thinking = createBubble("bot", "...", "thinking");
+  // chatUl.appendChild(thinking);
   var encoded = "message=" + encodeURI(input);
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
@@ -48,15 +55,20 @@ function sendInput(input, cb) {
   xhr.send(encoded);
 }
 
+// ----------- Render API response -----------
+
 function renderBotResponse(resJSON) {
-  var thinking = document.querySelector(".thinking");
-  if (thinking) {
-    thinking.remove();
-  }
+  // var thinking = document.querySelector(".thinking");
+  // if (thinking) {
+  //   thinking.remove();
+  // }
+  thinkingDiv.classList.add("hidden");
+  // render API response
   if (resJSON.fulfillmentText) {
     var reply = createBubble("bot", resJSON.fulfillmentText);
     chatUl.appendChild(reply);
   }
+  // render next prompt
   var nextQuestion = getNextQuestion();
   var delay = 1000;
   if (nextQuestion instanceof Array) {
@@ -77,6 +89,50 @@ function renderBotResponse(resJSON) {
   }
 }
 
+// ----------- Look for DOM change to animate bubbles -----------
+
+var callback = function(mutationsList, observer) {
+  // console.log("mutation observed...");
+  console.log(mutationsList);
+  for (var mutation of mutationsList) {
+    if (mutation.addedNodes) {
+      // console.log("looping");
+      setTimeout(() => {
+        chatUl.lastChild.classList.add("move");
+      }, 0);
+    }
+  }
+};
+var config = { childList: true };
+var observer = new MutationObserver(callback);
+observer.observe(chatUl, config);
+
+// ----------- Create Bubble HTML -----------
+
+function createBubble(person, text, thinking) {
+  console.log("creating bubble: ", person);
+  person = person.toLowerCase();
+  // Create Container
+  var container = document.createElement("li");
+  container.classList.add(`bubble-wrapper-${person}`);
+  if (thinking) {
+    container.classList.add("thinking");
+  }
+  // create message content
+  var reply = document.createElement("p");
+  reply.classList.add(`${person}-speech-bubble`, `speechBox`);
+  reply.textContent = text;
+  // create subtext
+  var subtext = document.createElement("p");
+  var text = person == "user" ? "you" : person;
+  subtext.textContent = text.toUpperCase();
+  subtext.classList.add("name");
+  // append to container, return container
+  container.appendChild(reply);
+  container.appendChild(subtext);
+  return container;
+}
+
 function getNextQuestion() {
   var result = questionArray[questionCounter];
   questionCounter++;
@@ -86,25 +142,6 @@ function getNextQuestion() {
 function setScrollToBottom() {
   var length = chatWindow.clientHeight;
   window.scrollTo(0, length);
-}
-
-function createBubble(person, text, thinking) {
-  person = person.toLowerCase();
-  var container = document.createElement("li");
-  container.classList.add(`bubble-wrapper-${person}`);
-  if (thinking) {
-    container.classList.add("thinking");
-  }
-  var reply = document.createElement("p");
-  reply.classList.add(`${person}-speech-bubble`, `speechBox`);
-  reply.textContent = text;
-  var subtext = document.createElement("p");
-  var text = person == "user" ? "you" : person;
-  subtext.textContent = text.toUpperCase();
-  subtext.classList.add("name");
-  container.appendChild(reply);
-  container.appendChild(subtext);
-  return container;
 }
 
 var questionCounter = 0;
