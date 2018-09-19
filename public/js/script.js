@@ -40,8 +40,6 @@ sendButton.addEventListener("click", function(e) {
 // ----------- USER XHR -----------
 
 function sendInput(input, cb) {
-  // var thinking = createBubble("bot", "...", "thinking");
-  // chatUl.appendChild(thinking);
   var encoded = "message=" + encodeURI(input);
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
@@ -57,15 +55,10 @@ function sendInput(input, cb) {
 
 // ----------- Render API response -----------
 
-function renderBotResponse(resJSON) {
-  // var thinking = document.querySelector(".thinking");
-  // if (thinking) {
-  //   thinking.remove();
-  // }
-
+function renderBotResponse(res) {
   // render API response
-  if (resJSON.fulfillmentText) {
-    var reply = createBubble("bot", resJSON.fulfillmentText);
+  if (res !== "no response") {
+    var reply = createBubble("bot", res);
     chatUl.appendChild(reply);
     thinkingDiv.classList.add("hidden");
   }
@@ -95,11 +88,8 @@ function renderBotResponse(resJSON) {
 // ----------- Look for DOM change to animate bubbles -----------
 
 var callback = function(mutationsList, observer) {
-  // console.log("mutation observed...");
-  console.log(mutationsList);
   for (var mutation of mutationsList) {
     if (mutation.addedNodes) {
-      // console.log("looping");
       setTimeout(() => {
         chatUl.lastChild.classList.add("move");
       }, 0);
@@ -113,7 +103,6 @@ observer.observe(chatUl, config);
 // ----------- Create Bubble HTML -----------
 
 function createBubble(person, text, thinking) {
-  console.log("creating bubble: ", person);
   person = person.toLowerCase();
   // Create Container
   var container = document.createElement("li");

@@ -1,37 +1,32 @@
+const request = require("request");
 if (!process.env.TRAVIS) {
   const env = require("env2")("config.env");
 }
 
 exports.post = (req, res) => {
-  const query = req.body.message;
-  const projectId = process.env.PROJECT_ID;
-  const sessionId = process.env.SESSION_ID;
-  const languageCode = "en-US";
-
-  const dialogflow = require("dialogflow");
-  const sessionClient = new dialogflow.SessionsClient();
-
-  const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-
-  const request = {
-    session: sessionPath,
-    queryInput: {
-      text: {
-        text: query,
-        languageCode
-      }
-    }
+  const options = {
+    method: "POST",
+    url: "https://api.dialogflow.com/v1/query",
+    qs: { v: "20150910" },
+    headers: {
+      "cache-control": "no-cache",
+      "content-type": "application/json",
+      authorization: "Bearer " + process.env.CLIENT_TOKEN
+    },
+    body: {
+      lang: "en",
+      query: req.body.message || "I'm sad",
+      sessionId: process.env.SESSION_ID
+    },
+    json: true
   };
 
-  sessionClient
-    .detectIntent(request)
-    .then(responses => {
-      // console.log(responses);
-      const result = responses[0].queryResult;
-      res.end(JSON.stringify(result));
-    })
-    .catch(err => {
-      console.error("ERROR:", err);
-      res.end(JSON.stringify(err));
-    });
+  request(options, (error, response, body) => {
+    if (error) throw new Error(error);
+    if (body.result.fulfillment.speech) {
+      const message = body.result.fulfillment.speech;
+      res.end(JSON.stringify(message));
+    } 
+    res.end(JSON.stringify("no response"));
+  });
 };
