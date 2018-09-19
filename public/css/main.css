@@ -22,6 +22,7 @@ body {
 
 #chat-window {
   margin-bottom: 68px;
+  padding-top: 19px;
 }
 
 /* ----------- Nav Bar and Pop out menu ----------- */
@@ -107,12 +108,12 @@ nav ul {
 }
 
 .bubble-wrapper-bot {
-  margin: 10px 19px;
+  margin: 0 19px;
   align-self: flex-start;
 }
 
 .bubble-wrapper-user {
-  margin: 10px 19px;
+  margin: 0 19px;
   align-self: flex-end;
 }
 
@@ -136,6 +137,7 @@ nav ul {
   font-family: "Roboto", sans-serif;
   color: gray;
   padding: 10px 15px;
+  margin: 0;
 }
 
 .bubble-wrapper-user .name {
@@ -246,7 +248,7 @@ h2 {
   font-size: 1.3rem;
 }
 
-p {
+.information-container p {
   margin: 20px 0;
 }
 

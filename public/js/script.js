@@ -7,7 +7,7 @@ const chatWindow = document.querySelector("#chat-window");
 
 window.addEventListener("load", function(e) {
   var whatsup = createBubble("bot", "Hey!");
-  var stressed = createBubble("bot", "Is something stressing you out?")
+  var stressed = createBubble("bot", "Is something stressing you out?");
   setTimeout(function() {
     chatUl.appendChild(whatsup);
   }, 500);
@@ -61,13 +61,13 @@ function renderBotResponse(resJSON) {
   var delay = 1000;
   if (nextQuestion instanceof Array) {
     nextQuestion.forEach(function(q) {
-      var html = createBubble("bot", q)
+      var html = createBubble("bot", q);
       setTimeout(() => {
         chatUl.appendChild(html);
         setScrollToBottom();
       }, delay);
       delay += 1000;
-    })
+    });
   } else {
     var next = createBubble("bot", nextQuestion);
     setTimeout(() => {
@@ -79,7 +79,7 @@ function renderBotResponse(resJSON) {
 
 function getNextQuestion() {
   var result = questionArray[questionCounter];
-  questionCounter++
+  questionCounter++;
   return result;
 }
 
@@ -99,7 +99,8 @@ function createBubble(person, text, thinking) {
   reply.classList.add(`${person}-speech-bubble`, `speechBox`);
   reply.textContent = text;
   var subtext = document.createElement("p");
-  subtext.textContent = person.toUpperCase();
+  var text = person == "user" ? "you" : person;
+  subtext.textContent = text.toUpperCase();
   subtext.classList.add("name");
   container.appendChild(reply);
   container.appendChild(subtext);
@@ -110,8 +111,11 @@ var questionCounter = 0;
 var questionArray = [
   "Tell me about the situation",
   "What about that is causing you the most stress?",
-  ["How we feel about things is shaped by many things: emotions, thoughts, bodily sensations and behaviours are a few. I’m going to ask you about each of these:","What emotions do you feel when thinking about the situation?"],
+  [
+    "How we feel about things is shaped by many things: emotions, thoughts, bodily sensations and behaviours are a few. I’m going to ask you about each of these:",
+    "What emotions do you feel when thinking about the situation?"
+  ],
   "What bodily sensations do you feel when thinking about the situation?",
   "How are you behaving in the situation?",
   "What’s going through your mind when thinking about the situation?"
-]
+];
