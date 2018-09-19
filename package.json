@@ -23,16 +23,16 @@
     "codecov": "^3.1.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.4",
-    "supertest": "^3.3.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "dialogflow": "^0.6.0",
+    "supertest": "^3.3.0",
     "env2": "^2.2.2",
     "eslint": "^5.5.0",
     "eslint-config-node": "^3.0.0",
-    "eslint-config-prettier": "^3.0.1",
+    "eslint-config-prettier": "^3.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "request": "^2.88.0"
   }
 }
