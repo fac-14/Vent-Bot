@@ -202,25 +202,23 @@ nav ul {
 /* ----------- Exit Modal Styles ----------- */
 
 .overlay {
-  position: absolute;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
   top: 0;
-  right: 0;
   left: 0;
-  bottom: 0;
-  background: #aaaaaa;
-  opacity: 0.7;
+  background: rgba(0, 0, 0, 0.2);
   display: none;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
 }
 
 .show {
-  display: block;
+  display: flex;
 }
 
 .overlay-container {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translateX(50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -228,30 +226,45 @@ nav ul {
 
 .question {
   background: #0cceff;
-  padding: 15px;
-  width: 177px;
+  color: white;
+  padding: 20px;
+  width: 250px;
   border-radius: 17px;
+  line-height: 1.3rem;
+  font-size: 1.3rem;
+}
+
+#subtext {
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1rem;
 }
 
 .button-div {
   display: flex;
   justify-content: space-between;
   margin: 14px;
-  width: 112px;
+  width: 120px;
 }
 
 .modal-button {
   border-radius: 50%;
   width: 49px;
   height: 49px;
-  background: #616161;
+  background:navy;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#modal-yes {
+  background: #f4eb22;
 }
 
-/* #check, #cross {
-  width: 54px;
-  height: 54px;
-} */
+#modal-no {
+  background:grey;
+}
 
 /* Form (typing area) styles */
 
@@ -317,6 +330,7 @@ h2 {
 .text-link {
   text-decoration: none;
   color: navy;
+  padding: 10px 0 10px 20px;
 }
 
 .text-link:hover,
@@ -326,29 +340,12 @@ h2 {
 
 /* Home Screen */
 
-.home-container {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  min-height: calc(100vh - 68px);
-}
-
 .home-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.home-container .name {
-  padding: 5px 0px;
-}
-
-.title-container,
-.tagline-container,
-.instruction-container {
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
+  justify-content: space-around;
+  min-height: calc(100vh - 68px);
 }
 
 .title {
@@ -356,30 +353,19 @@ h2 {
   font-weight: 900;
   text-shadow: -5px -5px #f4eb22;
   z-index: 1;
+  margin: 5px 0 ;
 }
 
 .img {
-  background-color: lightgrey;
-  height: 170px;
-  width: 170px;
-  border-radius: 50%;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
+  height: 150px;
+  width: 150px;
 }
 
 .tagline-container {
-  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
   align-items: center;
-  /* display: flex;
-  justify-content: center; */
-}
-
-.tagline,
-.instruction {
-  font-size: 1.5rem;
-  margin: 4px 20;
 }
 
 .prompt {
@@ -389,22 +375,34 @@ h2 {
 }
 
 .tagline {
+  font-size: 1.5rem;
   min-width: 250px;
-  margin: 10px 50px;
+  margin: 10px 20px;
   text-align: center;
   font-weight: 900;
 }
 
 .instruction-container {
-  margin: 5px 0;
+  max-width: 300px;
 }
 
 .instruction {
-  min-width: 200px;
   font-size: 1rem;
-  margin: 4px 80px;
+  margin: 10px;
   font-weight: 400;
-  list-style-type: disc;
+  position: relative;
+  display: none;
+}
+
+.instruction::before {
+  content: " ";
+  background: #0cceff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: absolute;
+  left: -30px;
+  top: calc(50% - 10px);
 }
 
 #chat-btn,
@@ -415,11 +413,9 @@ h2 {
   color: black;
   text-align: center;
   text-transform: uppercase;
-  /* font-family: "Lato", sans-serif; */
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 0.8rem;
-  /* font-size: 1.2rem; */
   border-radius: 25px;
   min-width: 140px;
   margin: 8px 0;
@@ -457,5 +453,14 @@ h2 {
     background: #ecf0f1;
     padding: 10px;
     z-index: 10;
+  }
+  .home-content {
+    justify-content: center;
+  }
+  .instruction {
+    display: block;
+  }
+  .home-pad {
+    margin-top: 20px; 
   }
 }
