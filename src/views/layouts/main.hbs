@@ -3,7 +3,11 @@
   {{>head}}
 
     <body>
-        {{>nav}}
+        {{#if nav}}
+            {{>chatnav}}
+        {{else}}
+            {{>nav}}
+        {{/if}}    
         <section class="main-section">
             {{{body}}}
         </section>
