@@ -1,3 +1,3 @@
 exports.get = (req, res) => {
-    res.render('chat');
+    res.render('chat', { nav: true });
 }
