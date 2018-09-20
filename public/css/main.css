@@ -428,7 +428,50 @@ h2 {
 
 /* ----------- Set if free ------------ */
 
-#squiggle {
+.floaty-bubble {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 10px;
+  background: #0cceff;
+  padding: 1px;
+  animation: setfree 5s linear;
+  animation-iteration-count: 1;
+  transform: translate(-100px);
+  opacity: 0;
+}
+
+.floaty-bubble:nth-of-type(2) {
+  animation-delay: -1s;
+}
+.floaty-bubble:nth-of-type(3) {
+  animation-delay: -2s;
+}
+.floaty-bubble:nth-of-type(4) {
+  animation-delay: -3s;
+}
+
+@keyframes setfree {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.5) translateX(60px);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+  75% {
+    transform: scale(0.8) translateX(60px) translateY(40px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* #squiggle {
   margin: auto;
   transform: rotate(90deg);
 }
@@ -442,7 +485,7 @@ h2 {
   to {
     stroke-dashoffset: 0;
   }
-}
+} */
 
 /* ----------- Media Queries ------------ */
 
