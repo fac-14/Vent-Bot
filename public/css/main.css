@@ -246,12 +246,10 @@ nav ul {
   height: 49px;
   background: #616161;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-/* #check, #cross {
-  width: 54px;
-  height: 54px;
-} */
 
 /* Form (typing area) styles */
 
