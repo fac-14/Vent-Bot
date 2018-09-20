@@ -330,6 +330,7 @@ h2 {
 .text-link {
   text-decoration: none;
   color: navy;
+  padding: 10px 0 10px 20px;
 }
 
 .text-link:hover,
