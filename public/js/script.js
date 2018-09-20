@@ -136,7 +136,7 @@ function createBubble(person, text, thinking) {
 
 function getNextQuestion() {
   var result = questionArray[questionCounter];
-  if (questionCounter === 8) {
+  if (questionCounter === 9) {
     questionCounter = 0;
   }
   questionCounter++;

@@ -333,6 +333,10 @@ h2 {
   padding: 10px 0 10px 20px;
 }
 
+.text-link-resources {
+  padding: 0px;
+}
+
 .text-link:hover,
 .text-link:focus {
   color: magenta;
