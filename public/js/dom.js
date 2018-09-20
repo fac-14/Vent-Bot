@@ -1,5 +1,3 @@
-//navbar visibility
-
 const menu = document.querySelector('#pop-out-menu');
 const navIcon = document.querySelector('.nav-icon');
 const menuLines = document.querySelectorAll('.menu-line');
@@ -7,6 +5,7 @@ const exit = document.getElementById("exit-btn");
 const overlay = document.getElementsByClassName("overlay");
 const no = document.getElementById("modal-no");
 const yes = document.getElementById("modal-yes");
+
 
 navIcon.addEventListener('click', showMenu)
 function showMenu() {
