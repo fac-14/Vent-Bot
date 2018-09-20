@@ -128,6 +128,9 @@ function createBubble(person, text, thinking) {
 
 function getNextQuestion() {
   var result = questionArray[questionCounter];
+  if (questionCounter === 8) {
+    questionCounter = 0;
+  }
   questionCounter++;
   return result;
 }
@@ -142,10 +145,13 @@ var questionArray = [
   "Tell me about the situation",
   "What about that is causing you the most stress?",
   [
-    "How we feel about things is shaped by many things: emotions, thoughts, bodily sensations and behaviours are a few. I’m going to ask you about each of these:",
+    "I’m going to ask you some questions to help you break down your problem",
     "What emotions do you feel when thinking about the situation?"
   ],
-  "What bodily sensations do you feel when thinking about the situation?",
+  "What is your physical reaction to thinking about the situation?",
   "How are you behaving in the situation?",
-  "What’s going through your mind when thinking about the situation?"
+  "What’s going through your mind when thinking about the situation?",
+  "If another person was involved, how do you think they are feeling about what happened?",
+  "What would you tell a friend who shared this exact problem with you?",
+  "I hope talking about this has made you feel better. Would you be ready to set this thought free? (click cross in top corner)"
 ];
