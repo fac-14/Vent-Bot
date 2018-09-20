@@ -58,7 +58,6 @@ nav ul {
 
 #menu-btn {
   background-color: #f4eb22;
-  /* background-image: url("./img/Menu-lines.svg"); */
   margin-left: 19px;
   display: flex;
   align-items: center;
@@ -70,6 +69,8 @@ nav ul {
   background-image: url("./img/cross.svg");
 }
 
+/* Menu Icon Arrow Transformation */
+
 .menu-line {
   transition: transform 0.5s ease;
   transform-origin: 50% 50%;
@@ -79,7 +80,7 @@ nav ul {
 }
 .arrow-formation:nth-of-type(3) {
   transform: translateX(4px) rotate(-45deg);
-} 
+}
 
 /* Pop out menu */
 
@@ -354,7 +355,8 @@ h2 {
 
 /* Home Screen */
 
-.home-content {
+.home-content,
+.animation-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -362,10 +364,20 @@ h2 {
   min-height: calc(100vh - 68px);
 }
 
+.home-content {
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
+  background-color: #ffffff;
+  background-image: url("img/swisscheese.svg"),
+    linear-gradient(to top, white, #bff4ff);
+}
+
 .title {
   font-size: 3.5rem;
   font-weight: 900;
   text-shadow: -5px -5px #f4eb22;
+  /* color: white; */
   z-index: 1;
   margin: 5px 0;
 }
