@@ -23,7 +23,6 @@ exports.post = (req, res) => {
 
   request(options, (error, response, body) => {
     if (error) throw new Error(error);
-    console.log(body)
     if (body.result.fulfillment.speech) {
       const message = body.result.fulfillment.speech;
       res.end(JSON.stringify(message));
