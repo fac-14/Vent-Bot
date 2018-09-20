@@ -25,7 +25,6 @@ sendButton.addEventListener("click", function(e) {
   var inputField = document.getElementById("user-input");
   var userInput = inputField.value;
   if (userInput.length === 0) {
-    console.log('userinput is 0');
     inputField.setAttribute('placeholder', "I can't hear you, type a message");
     inputField.style.border = 'solid 3px #0cceff';
   } else {
