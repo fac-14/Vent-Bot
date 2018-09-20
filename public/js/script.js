@@ -60,6 +60,7 @@ function renderBotResponse(res) {
   if (res !== "no response") {
     var reply = createBubble("bot", res);
     chatUl.appendChild(reply);
+    setScrollToBottom();
     thinkingDiv.classList.add("hidden");
   }
   // render next prompt

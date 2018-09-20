@@ -207,8 +207,7 @@ nav ul {
   width: 100vw;
   top: 0;
   left: 0;
-  background: #aaaaaa;
-  opacity: 0.7;
+  background: rgba(0, 0, 0, 0.2);
   display: none;
   z-index: 100;
   align-items: center;
@@ -227,9 +226,19 @@ nav ul {
 
 .question {
   background: #0cceff;
-  padding: 15px;
-  width: 220px;
+  color: white;
+  padding: 20px;
+  width: 250px;
   border-radius: 17px;
+  line-height: 1.3rem;
+  font-size: 1.3rem;
+}
+
+#subtext {
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1rem;
 }
 
 .button-div {
@@ -243,11 +252,18 @@ nav ul {
   border-radius: 50%;
   width: 49px;
   height: 49px;
-  background: #616161;
+  background:navy;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+#modal-yes {
+  background: #f4eb22;
+}
+
+#modal-no {
+  background:grey;
 }
 
 /* Form (typing area) styles */
