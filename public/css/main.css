@@ -252,7 +252,7 @@ nav ul {
   border-radius: 50%;
   width: 49px;
   height: 49px;
-  background:navy;
+  background: navy;
   border: none;
   display: flex;
   align-items: center;
@@ -263,7 +263,7 @@ nav ul {
 }
 
 #modal-no {
-  background:grey;
+  background: grey;
 }
 
 /* Form (typing area) styles */
@@ -353,7 +353,7 @@ h2 {
   font-weight: 900;
   text-shadow: -5px -5px #f4eb22;
   z-index: 1;
-  margin: 5px 0 ;
+  margin: 5px 0;
 }
 
 .img {
@@ -428,9 +428,20 @@ h2 {
 
 /* ----------- Set if free ------------ */
 
-#gif {
-  width: 320px;
-  margin: 100px auto;
+#squiggle {
+  margin: auto;
+  transform: rotate(90deg);
+}
+.line {
+  stroke-dasharray: 10000;
+  stroke-dashoffset: 10000;
+  animation: dash 10s reverse linear;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* ----------- Media Queries ------------ */
@@ -461,6 +472,6 @@ h2 {
     display: block;
   }
   .home-pad {
-    margin-top: 20px; 
+    margin-top: 20px;
   }
 }
