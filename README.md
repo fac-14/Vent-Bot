@@ -93,10 +93,10 @@ The dream would be to make VentBot super intuitive and really feel like a truste
 ---
 
 #### Design challenges
-- [ ] Wireframing and colour scheme 
-- [ ] Create a chat experinece with personality that feels intuitive
-- [ ] Develop an animation that representing letting go of a problem and moving beyond it
-- [ ] Elevate user experinece by building interface animations 
+- [x] Wireframing and colour scheme 
+- [x] Create a chat experinece with personality that feels intuitive
+- [x] Develop an animation that representing letting go of a problem and moving beyond it
+- [x] Elevate user experinece by building interface animations 
 
 #### Developing wireframes and selecting colour scheme in Figma
 ![wireframes](https://i.imgur.com/BnbuDTV.png)
