@@ -72,15 +72,26 @@ The dream would be to make VentBot super intuitive and really feel like a truste
 - [x] Hanldebars.js
 - [x] DialogFlow API
 
-#### Hardcoded bot script
-Add in any relevant details on this topic here 
+#### Making the chatbot
+* To make the bot guide the user through reflective thinking, we have **hardcoded nine questions in JavaScript** that asks the user to:  
+  1. Describe an upsetting situation
+  2. Share their emotions, thoughts and physical reaction to the situation 
+  3. Reflect over the feelings other people involved in the situation may have experienced
+* To add off-script personality, **we send the user input to DialogFlow API**: 
+  4. If the API is able to recognise the intent of the message it will match it with an approptiate reply
+ 
+ > :thinking: **_"But how does the DialogFlow API recognise intent?"_**  
+ 
+ > _"After signing up or signing in to a Google Service Account you will need to create an "Agent" (that will hold all of your programmed intents). If you're using `node.js`, follow the instructions in this [node.js client](googleapis/nodejs-dialogflow). Make an xhr request from your site point to the Agent (although, the code given in the node.js client works when it came to deployment on Heroku we had most [luck not using promises](https://github.com/fac-14/Vent-Bot/blob/master/src/controllers/routes/message.js) as in the given in the example). With our code we only had to add a SESSION_ID and a CLIENT_TOKEN to a `config.env` file to authorise the live site to access the Agent."_
 
-#### Configuring the DialogFlow API 
-Add in any relevant details on this topic here 
+ > :thinking: **_"How do you write an intent in DialogFlow API?"_**
+
+> _"Once the default 'welcome' intent was giving us friendly greetings, we filled our Agent with intents named after emotions, fed it lines that users feeling that emotion might type and finally crafted some responses for the bot to feed back."
 
 
-#### Design
-* 
+#### Design challenges
+- [ ] Create a chat experinece that feels intuitive yet with personality
+- [ ] 
 
 
 ---
