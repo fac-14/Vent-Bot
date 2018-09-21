@@ -88,13 +88,20 @@ The dream would be to make VentBot super intuitive and really feel like a truste
 
  > :thinking: **_"How did you write your intents for the DialogFlow API?"_**
 
-> _"Once the default 'welcome' intent was giving us friendly greetings, we filled our Agent (usning the DialogFlow interface) with intents named after emotions, fed it lines that users feeling that emotion might type and finally crafted some responses for the bot to feed back."
+> _"Once the default 'welcome' intent was giving us friendly greetings, we filled our Agent (usning the DialogFlow interface) with intents named after emotions, fed it lines that users feeling that emotion might type and finally crafted some responses for the bot to feed back."_
 
 ---
 
 #### Design challenges
-- [ ] Create a chat experinece that feels intuitive yet with personality
-- [ ] 
+- [ ] Wireframing and colour scheme 
+- [ ] Create a chat experinece with personality that feels intuitive
+- [ ] Develop an animation that representing letting go of a problem and moving beyond it
+- [ ] Elevate user experinece by building interface animations 
+
+#### Developing wireframes and selecting colour scheme in Figma
+![wireframes](https://i.imgur.com/BnbuDTV.png)
+![colour samples](https://i.imgur.com/nok7UTo.png)
+![applied colour samples](https://i.imgur.com/K6a8v3D.png)
 
 
 ---
