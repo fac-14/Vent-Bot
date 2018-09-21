@@ -100,8 +100,12 @@ The dream would be to make VentBot super intuitive and really feel like a truste
 
 #### Developing wireframes and selecting colour scheme in Figma
 ![wireframes](https://i.imgur.com/BnbuDTV.png)
-![colour samples](https://i.imgur.com/nok7UTo.png)
-![applied colour samples](https://i.imgur.com/K6a8v3D.png)
+
+#### Chat animations
+
+#### Let it go animation
+
+#### Interface animation
 
 
 ---
