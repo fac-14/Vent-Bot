@@ -77,8 +77,8 @@ The dream would be to make VentBot super intuitive and really feel like a truste
   1. Describe an upsetting situation
   2. Share their emotions, thoughts and physical reaction to the situation 
   3. Reflect over the feelings other people involved in the situation may have experienced
-* To add off-script personality, **we send the user input to DialogFlow API**: 
-  4. If the API is able to recognise the intent of the message it will match it with an approptiate reply
+* To add off-script personality, **we send the user input to DialogFlow API**:    
+   iv. If the API is able to recognise the intent of the message it will match it with an approptiate reply
  
  > :thinking: **_"But how does the DialogFlow API recognise intent?"_**  
  
