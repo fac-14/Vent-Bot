@@ -102,11 +102,13 @@ The dream would be to make VentBot super intuitive and really feel like a truste
 ![wireframes](https://i.imgur.com/BnbuDTV.png)
 
 #### Chat animations
+![animating the chat messages](https://i.imgur.com/XUG4NCB.gif)
 
-#### Let it go animation
+#### Set it free animation
+![animating setting it free](https://i.imgur.com/2thPK8r.gif)
 
 #### Interface animation
-
+![animating the menu button](https://i.imgur.com/12ENvav.gif)
 
 ---
 
